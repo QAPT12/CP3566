@@ -15,8 +15,7 @@ public class FunWithCreatingDBs {
     public static void main(String[] args) {
         // Open a connection
         try(
-                Connection conn = DriverManager.getConnection(
-                        MariaDBProperties.DATABASE_URL, MariaDBProperties.DATABASE_USER, MariaDBProperties.DATABASE_PASSWORD);
+                Connection conn = DriverManager.getConnection(MariaDBProperties.DATABASE_URL_COMPLETE);
                 Statement stmt = conn.createStatement();
         ) {
             String sql = "CREATE DATABASE STUDENTS";
