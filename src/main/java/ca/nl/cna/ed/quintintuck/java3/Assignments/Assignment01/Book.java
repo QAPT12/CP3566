@@ -3,6 +3,10 @@ package ca.nl.cna.ed.quintintuck.java3.Assignments.Assignment01;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Represents a book with attributes such as ISBN, title, edition number,
+ * copyright information, and a list of assigned authors.
+ */
 public class Book {
     private String isbn;
     private String title;
@@ -12,6 +16,14 @@ public class Book {
 
 
 
+    /**
+     * Constructs a new Book object with the specified ISBN, title, edition number, and copyright information.
+     *
+     * @param isbn          the ISBN of the book
+     * @param title         the title of the book
+     * @param editionNumber the edition number of the book
+     * @param copyright     the copyright information of the book
+     */
     public Book(String isbn, String title, String editionNumber, String copyright) {
         this.isbn = isbn;
         this.title = title;
@@ -20,6 +32,11 @@ public class Book {
         this.authorList = new ArrayList<>();
     }
 
+    /**
+     * Adds an author to the book's list of authors if the author is not already present.
+     *
+     * @param author the author to be added to the book's list of authors
+     */
     public void addAuthorToBook(Author author) {
         if (!this.authorList.contains(author)) {
             this.authorList.add(author);

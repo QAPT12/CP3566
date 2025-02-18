@@ -3,6 +3,12 @@ package ca.nl.cna.ed.quintintuck.java3.Assignments.Assignment01;
 import java.util.Scanner;
 import java.sql.*;
 
+/**
+ * The BookApplication class serves as the main entry point for the Book Library Management System.
+ * It provides a command-line interface for users to interact with the library's database,
+ * allowing them to perform various operations, such as viewing books and authors, editing attributes,
+ * and adding new books or authors to the database.
+ */
 public class BookApplication {
     private static final Scanner scanner = new Scanner(System.in);
     private static final BookDatabaseManager db = new BookDatabaseManager();
@@ -40,6 +46,11 @@ public class BookApplication {
         }
     }
 
+    /**
+     * Displays a menu of options to the user for interacting with the application.
+     * Users can select options for various tasks such as viewing books,
+     * managing authors, editing attributes, adding new books, or exiting the application.
+     */
     private static void printMenu() {
         System.out.println("Select an option:");
         System.out.println("1. Print all books");
@@ -49,9 +60,15 @@ public class BookApplication {
         System.out.println("5. Quit");
     }
 
+    /**
+     * Prints the details of all books in the given library, including their
+     * titles and the names of their authors.
+     *
+     * @param library the library containing the books to be printed
+     */
     private static void printAllBooks(Library library) {
         for (Book book : library.getBooks()) {
-            System.out.println("Title: " + book.getTitle());
+            System.out.println("\nTitle: " + book.getTitle());
             System.out.println("Authors:");
             for (Author author : book.getAuthorList()) {
                 System.out.println("\t" + author.getFullName());
@@ -59,9 +76,15 @@ public class BookApplication {
         }
     }
 
+    /**
+     * Prints a list of all authors in the provided library, along with the books associated
+     * with each author. Each author's full name is displayed, followed by their list of books.
+     *
+     * @param library the library object containing the authors and their associated books
+     */
     private static void printAllAuthors(Library library) {
         for (Author author : library.getAuthors()) {
-            System.out.println("Author: " + author.getFullName());
+            System.out.println("\nAuthor: " + author.getFullName());
             System.out.println("Books:");
             for (Book book : author.getBooksForAuthor()) {
                 System.out.println("\t" + book.getTitle());
@@ -69,6 +92,13 @@ public class BookApplication {
         }
     }
 
+    /**
+     * Provides an option to edit attributes of either a book or an author in the library.
+     * Displays a menu for the user to select whether they want to edit a book's attributes
+     * or an author's attributes, and performs the selected operation.
+     *
+     * @param library the library containing the books and authors whose attributes may be edited
+     */
     private static void editAttributes(Library library) {
         System.out.println("Do you want to edit a book or an author?");
         System.out.println("1. Edit a Book");
@@ -88,6 +118,13 @@ public class BookApplication {
         }
     }
 
+    /**
+     * Allows the user to edit the attributes of a book in the library. The user is prompted
+     * to select a book from the list of available books and then update its title, edition number,
+     * and copyright. Blank inputs will retain the current values of the book's attributes.
+     *
+     * @param library the Library object containing the list of books to be edited
+     */
     private static void editBookAttribute(Library library) {
         System.out.println("Here are the books available in the library:");
         // Print all books with their index
@@ -131,6 +168,13 @@ public class BookApplication {
         System.out.println("Book details updated successfully.");
     }
 
+    /**
+     * Allows the user to edit an author's attributes in the library. The user is presented
+     * with a list of authors to select from, and can then update the first and last name
+     * of the chosen author. Blank inputs will retain the current values of the author's attributes.
+     *
+     * @param library the Library object containing the list of authors to be edited
+     */
     private static void editAuthorAttribute(Library library) {
         System.out.println("Here are the authors available in the library:");
         // Print all authors with their index
@@ -169,6 +213,14 @@ public class BookApplication {
 
     }
 
+    /**
+     * Adds a new book to the library, allowing the user to input the book's details
+     * and associate authors with the book. The user has the option to select
+     * existing authors or add new authors to the library.
+     *
+     * @param library the Library object where the book and associated authors will be added
+     * @throws SQLException if a database access error occurs while adding the book or authors
+     */
     private static void addBook(Library library) throws SQLException {
         System.out.println("Enter the book details:");
 
