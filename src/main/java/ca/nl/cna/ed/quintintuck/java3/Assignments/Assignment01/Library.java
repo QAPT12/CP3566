@@ -40,6 +40,8 @@ public class Library {
      * from the given database manager. Establishes the relationships between books
      * and their authors based on the database data.
      *
+     * TODO: Josh Recommend moving this into the DBManager to simplify the library class.
+     *
      * @param dbManager the BookDatabaseManager instance used to retrieve book and author
      *                  information and establish relationships.
      * @throws SQLException if a database access error occurs during the initialization process.

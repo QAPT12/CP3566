@@ -40,8 +40,8 @@ public class BookDatabaseManager {
         String insertBookQuery = String.format("INSERT INTO titles VALUES ('%s', '%s', '%s', '%s');",
                 book.getIsbn(),
                 book.getTitle(),
-                book.getCopyright(),
-                book.getEditionNumber());
+                book.getEditionNumber(),
+                book.getCopyright());
 
         executeQuery(insertBookQuery);
 
